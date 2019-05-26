@@ -1,0 +1,35 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() => runApp(SnackBarNoBuilerWidget());
+
+class SnackBarNoBuilerWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: Colors.green,
+      ),
+      home: Scaffold(
+        appBar: AppBar(title: Text("Flutter UI Widget -- SnackBar 及 Builder")),
+        body: SnackBarWidget(),
+      ),
+    );
+  }
+}
+
+class SnackBarWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text('Show SnackBar'),
+      onPressed: () {
+        Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text('SnackBar'),
+          duration: Duration(seconds: 5),
+        ));
+      },
+    );
+  }
+}

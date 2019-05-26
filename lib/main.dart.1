@@ -1,0 +1,113 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp("Hello World"));
+
+class MyApp extends StatelessWidget {
+  final String content;
+  MyApp(this.content);
+
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            '李洁是旺旺',
+          ),
+        ),
+        body: TextField(
+          onChanged: (String data) {
+            print(data);
+            print(_controller.text);
+          },
+          controller: _controller,
+          decoration: InputDecoration(labelText: '用户名：', hintText: '请输入用户名'),
+          textInputAction: TextInputAction.search,
+        ),
+
+        /*         body: Icon(
+          Icons.announcement,
+          size: 50.0,
+          color: Colors.green,
+        ), */
+
+        /*   body: Image.asset(
+          "images/flutter.png",
+          fit: BoxFit.fill,
+          repeat: ImageRepeat.repeatX,
+          height: null,
+          alignment: Alignment.bottomLeft,
+        ), */
+
+        /*   body: Center(
+          child: Text(
+            content,
+            style: TextStyle(
+              color: Colors.red,
+              fontSize: 20.0,
+              background: new Paint()..color = Colors.yellow,
+              decoration: TextDecoration.underline, //// 下划线
+              decorationStyle: TextDecorationStyle.wavy, //文本线条的种类
+              decorationColor: Colors.blue,
+            ),
+            textAlign: TextAlign.left,
+            textDirection: TextDirection.ltr,
+            overflow: TextOverflow.fade,
+          ), */
+
+        // body: RichText(
+        //   text: TextSpan(children: [
+        //     TextSpan(text: "Hello", style: TextStyle(color: Colors.blue)),
+        //     TextSpan(text: "Flutter", style: TextStyle(color: Colors.red))
+        //   ]),
+        // ),
+      ),
+    );
+  }
+}
+
+/* class MyApp extends StatefulWidget {
+  String content;
+
+  MyApp(this.content);
+
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  bool isShowText = true;
+  void increment() {
+    setState(() {
+      widget.content += ' World wonderfull';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(primaryColor: Colors.blue),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Widget -- StatefulWidget及State"),
+        ),
+        body: Center(
+          child: GestureDetector(
+            child: isShowText ? Text(widget.content) : null,
+            onTap: increment,
+          ),
+        ),
+      ),
+    );
+  }
+} */

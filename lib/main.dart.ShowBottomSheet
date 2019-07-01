@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(new ShowBottomSheet());
+
+class ShowBottomSheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter demo',
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter BottomSheet'),
+        ),
+
+        /*   body: Builder(
+          builder: (context) {
+            return RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('showBottomSheet'),
+            );
+          },
+        ),
+        bottomSheet: BottomSheet(
+          onClosing: () {},
+          builder: (context) => Container(
+                height: 200.0,
+                color: Colors.blue,
+                child: Center(
+                  child: RaisedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('dismissBottomSheet'),
+                  ),
+                ),
+              ),
+        ), */
+
+        // ==================================
+        body: Builder(builder: (context) {
+          return RaisedButton(
+            onPressed: () {
+              showModalBottomSheet(
+                //showBottomSheet
+                context: context,
+                builder: (context) => BottomSheet(
+                      onClosing: () {},
+                      builder: (context) => Container(
+                            height: 200.0,
+                            color: Colors.blue,
+                            child: Center(
+                              child: RaisedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('dismissBottomSheet'),
+                              ),
+                            ),
+                          ),
+                    ),
+              );
+            },
+            child: Text('show'),
+          );
+        }),
+      ),
+    );
+  }
+}

@@ -1,126 +1,91 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+import "package:hello_word/views/NewRoute.dart";
+import 'package:hello_word/views/EchoRoute.dart';
+import 'package:hello_word/views/RandomWordsWidget.dart';
 
-void main() => runApp(ShowDialog());
+void main() => runApp(new MyApp());
 
-class ShowDialog extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return new MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Colors.blueAccent,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: new AppBar(title: new Text('Show Dialog')),
-        body: Builder(
-          builder: (context) {
-            return RaisedButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => CupertinoAlertDialog(
-                        title: Text('CupertinoAlertDialog'),
-                        content: Text('This is a CupertinoAlertDialog'),
-                        actions: <Widget>[
-                          CupertinoDialogAction(
-                            child: Text('OK'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                          CupertinoDialogAction(
-                            child: Text('Cancel'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
-                      ),
-
-                  // ======================================================
-                  /*  builder: (context) => AlertDialog(
-                        title: Text('AlertDialog'),
-                        content: SingleChildScrollView(
-                          child: ListBody(
-                            children: <Widget>[
-                              Text('This is an alert dialog'),
-                              Text('add two options.'),
-                            ],
-                          ),
-                        ),
-                        actions: <Widget>[
-                          FlatButton(
-                            child: Text('Ok'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                          FlatButton(
-                            child: Text('Cancel'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
-                      ), */
-
-// =====================================================
-
-/*                   builder: (context) => SimpleDialog(
-                        title: Text('Simple Dialog Demo'),
-                        // backgroundColor: Colors.blue[300],
-                        children: <Widget>[
-                          SimpleDialogOption(
-                            child: Text('OK'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                          SimpleDialogOption(
-                            child: Text('Cancel'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
-                      ), */
-                );
-              },
-              child: Text('Show Dialog'),
-            );
-          },
-        ),
-      ),
+      routes: {
+        //路由表
+        "new_page": (context) => NewRoute(),
+        "new_page_params": (context) => EchoRoute(),
+      },
+      home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
   }
 }
 
-/* class ShowAboutDialogWidge extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+
+  @override
+  _MyHomePageState createState() => new _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Colors.blue,
+    return new Scaffold(
+      appBar: new AppBar(title: new Text(widget.title)),
+      body: new Center(
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Text(
+              'You have pushed the button this many times:',
+            ),
+            new Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.display1,
+            ),
+            FlatButton(
+              child: Text('open new route'),
+              textColor: Colors.blue,
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   new MaterialPageRoute(builder: (context) {
+                //     return new NewRoute();
+                //   }),
+                // );
+
+                Navigator.pushNamed(context, "new_page");
+              },
+            ),
+            FlatButton(
+              child: Text('open new with params'),
+              textColor: Colors.redAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, 'new_page_params',
+                    arguments: "hello world");
+              },
+            ),
+            RandomWordsWidget(),
+          ],
+        ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Flutter UI Widget -- 对话框'),
-        ),
-        body: Builder(
-          builder: (context) => RaisedButton(
-                onPressed: () {
-                  showAboutDialog(
-                    context: context,
-                    applicationName: 'Flutter UI Widget -- 对话框',
-                    applicationVersion: '1.0.0',
-                  );
-                },
-                child: Text('RaisedButton'),
-              ),
-        ),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: new Icon(Icons.add),
       ),
     );
   }
-} */
+}

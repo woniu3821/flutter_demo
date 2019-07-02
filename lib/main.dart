@@ -2,6 +2,9 @@ import "package:flutter/material.dart";
 import "package:hello_word/views/NewRoute.dart";
 import 'package:hello_word/views/EchoRoute.dart';
 import 'package:hello_word/views/RandomWordsWidget.dart';
+import 'package:hello_word/views/AssetBundle.dart';
+import 'package:hello_word/views/Echo.dart';
+import 'package:hello_word/views/CounterWidget.dart';
 
 void main() => runApp(new MyApp());
 
@@ -17,6 +20,8 @@ class MyApp extends StatelessWidget {
         //路由表
         "new_page": (context) => NewRoute(),
         "new_page_params": (context) => EchoRoute(),
+        "new_page_assets": (context) => AssetBundle(),
+        "new_page_life": (context) => CounterWidget(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -77,7 +82,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     arguments: "hello world");
               },
             ),
+            FlatButton(
+              child: Text('open assets'),
+              textColor: Colors.redAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, 'new_page_assets');
+              },
+            ),
+            FlatButton(
+              child: Text('open life'),
+              textColor: Colors.greenAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, 'new_page_life');
+              },
+            ),
             RandomWordsWidget(),
+            Echo(text: "hello world"),
           ],
         ),
       ),

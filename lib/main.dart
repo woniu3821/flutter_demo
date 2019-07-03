@@ -6,6 +6,8 @@ import 'package:hello_word/views/AssetBundle.dart';
 import 'package:hello_word/views/Echo.dart';
 import 'package:hello_word/views/CounterWidget.dart';
 
+import 'package:hello_word/views/BoxChange.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
         "new_page_params": (context) => EchoRoute(),
         "new_page_assets": (context) => AssetBundle(),
         "new_page_life": (context) => CounterWidget(),
+        "new_page_change_box_color": (context) => TapboxA(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -94,6 +97,13 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.greenAccent,
               onPressed: () {
                 Navigator.pushNamed(context, 'new_page_life');
+              },
+            ),
+            FlatButton(
+              child: Text('open change color'),
+              textColor: Colors.brown,
+              onPressed: () {
+                Navigator.pushNamed(context, 'new_page_change_box_color');
               },
             ),
             RandomWordsWidget(),

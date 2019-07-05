@@ -5,8 +5,14 @@ import 'package:hello_word/views/RandomWordsWidget.dart';
 import 'package:hello_word/views/AssetBundle.dart';
 import 'package:hello_word/views/Echo.dart';
 import 'package:hello_word/views/CounterWidget.dart';
+import 'package:hello_word/views/CupertinoTestRoute.dart';
+import "package:hello_word/views/TextPage.dart";
 
-import 'package:hello_word/views/BoxChange.dart';
+//widget自身管理状态
+// import 'package:hello_word/views/BoxChange.dart';
+
+//父widget管理子widget的state
+import 'package:hello_word/views/ParentWidget.dart';
 
 void main() => runApp(new MyApp());
 
@@ -24,7 +30,9 @@ class MyApp extends StatelessWidget {
         "new_page_params": (context) => EchoRoute(),
         "new_page_assets": (context) => AssetBundle(),
         "new_page_life": (context) => CounterWidget(),
-        "new_page_change_box_color": (context) => TapboxA(),
+        "new_page_change_box_state": (context) => ParentWidget(),
+        "cupertino_page": (context) => CupertinoTestRoute(),
+        "to_text": (context) => TextRoute(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -100,14 +108,31 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             FlatButton(
-              child: Text('open change color'),
+              child: Text('open change state'),
               textColor: Colors.brown,
               onPressed: () {
-                Navigator.pushNamed(context, 'new_page_change_box_color');
+                Navigator.pushNamed(context, 'new_page_change_box_state');
+              },
+            ),
+            FlatButton(
+              child: Text('open cupertino page'),
+              textColor: Colors.lightBlue,
+              onPressed: () {
+                Navigator.pushNamed(context, 'cupertino_page');
+              },
+            ),
+            FlatButton(
+              child: Text('open text page'),
+              textColor: Colors.orangeAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_text');
               },
             ),
             RandomWordsWidget(),
-            Echo(text: "hello world"),
+            Echo(
+              text: "hello world",
+              backgroundColor: Colors.yellowAccent,
+            ),
           ],
         ),
       ),

@@ -7,6 +7,8 @@ import 'package:hello_word/views/Echo.dart';
 import 'package:hello_word/views/CounterWidget.dart';
 import 'package:hello_word/views/CupertinoTestRoute.dart';
 import "package:hello_word/views/TextPage.dart";
+import "package:hello_word/views/ButtonPage.dart";
+import "package:hello_word/views/ImageAndIcon.dart";
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
         "new_page_change_box_state": (context) => ParentWidget(),
         "cupertino_page": (context) => CupertinoTestRoute(),
         "to_text": (context) => TextRoute(),
+        "to_button": (context) => ButtonRoute(),
+        "to_image_and_icon": (context) => ImageAndIcon(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -126,6 +130,20 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.orangeAccent,
               onPressed: () {
                 Navigator.pushNamed(context, 'to_text');
+              },
+            ),
+            FlatButton(
+              child: Text('open button page'),
+              textColor: Colors.cyan,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_button');
+              },
+            ),
+            RaisedButton(
+              child: Text('open image and icon'),
+              textColor: Colors.cyan,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_image_and_icon');
               },
             ),
             RandomWordsWidget(),

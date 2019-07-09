@@ -62,6 +62,7 @@ class TextRoute extends StatelessWidget {
                   style: TextStyle(
                     inherit: false, //不继承样式
                     color: Colors.grey,
+                    fontFamily: 'Schyler',
                   ),
                 ),
               ],

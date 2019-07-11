@@ -24,7 +24,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   #新加依赖
+  # 随机英文字符
   english_words: ^3.1.5
+  #渐变字体
+  gradient_text: ^1.0.2
 
 dev_dependencies:
   flutter_test:

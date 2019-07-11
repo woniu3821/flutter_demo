@@ -9,6 +9,9 @@ import 'package:hello_word/views/CupertinoTestRoute.dart';
 import "package:hello_word/views/TextPage.dart";
 import "package:hello_word/views/ButtonPage.dart";
 import "package:hello_word/views/ImageAndIcon.dart";
+import "package:hello_word/views/RadioAndCheckBox.dart";
+import "package:hello_word/views/TextFieldPage.dart";
+import "package:hello_word/views/FormPage.dart";
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -37,6 +40,9 @@ class MyApp extends StatelessWidget {
         "to_text": (context) => TextRoute(),
         "to_button": (context) => ButtonRoute(),
         "to_image_and_icon": (context) => ImageAndIcon(),
+        "to_raido_and_checkbox": (context) => RadioAndCheckBox(),
+        "to_textfield": (context) => TextFieldPage(),
+        "to_form": (context) => FormPage(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -64,9 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(title: new Text(widget.title)),
-      body: new Center(
+      body: new SingleChildScrollView(
         child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Text(
               'You have pushed the button this many times:',
@@ -74,6 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
             new Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
+            ),
+            RandomWordsWidget(),
+            Echo(
+              text: "hello world",
+              backgroundColor: Colors.yellowAccent,
             ),
             FlatButton(
               child: Text('open new route'),
@@ -146,11 +156,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, 'to_image_and_icon');
               },
             ),
-            RandomWordsWidget(),
-            Echo(
-              text: "hello world",
-              backgroundColor: Colors.yellowAccent,
+            OutlineButton(
+              child: Text('open radio and checkbox'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_raido_and_checkbox');
+              },
             ),
+            OutlineButton(
+                child: Text('open textfield'),
+                textTheme: ButtonTextTheme.primary,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'to_textfield');
+                }),
+            OutlineButton(
+                child: Text('open to_form'),
+                textTheme: ButtonTextTheme.primary,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'to_form');
+                }),
+            _listView(),
           ],
         ),
       ),
@@ -158,6 +182,27 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: new Icon(Icons.add),
+      ),
+    );
+  }
+
+  _listView() {
+    var datas = List.generate(100, (index) {
+      return "item ${index + 1}";
+    });
+    return Container(
+      height: 300,
+      child: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            child: Text("${datas[index]}"),
+            height: 40,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: Colors.grey))),
+          );
+        },
+        itemCount: datas.length,
       ),
     );
   }

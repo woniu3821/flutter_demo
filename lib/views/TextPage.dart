@@ -29,7 +29,7 @@ class TextRoute extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-                color: Colors.blue,
+                color: Colors.orangeAccent,
                 fontSize: 18.0,
                 height: 1.2,
                 fontFamily: 'Courier',

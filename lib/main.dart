@@ -12,6 +12,9 @@ import "package:hello_word/views/ImageAndIcon.dart";
 import "package:hello_word/views/RadioAndCheckBox.dart";
 import "package:hello_word/views/TextFieldPage.dart";
 import "package:hello_word/views/FormPage.dart";
+import "package:hello_word/views/TitleBar.dart";
+import "package:hello_word/views/RowAndColumnPage.dart";
+import "package:hello_word/views/FlexPage.dart";
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -43,6 +46,8 @@ class MyApp extends StatelessWidget {
         "to_raido_and_checkbox": (context) => RadioAndCheckBox(),
         "to_textfield": (context) => TextFieldPage(),
         "to_form": (context) => FormPage(),
+        "to_rowandcolumn": (context) => RowAndColumn(),
+        "to_flex": (context) => FlexPage(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -84,6 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Echo(
               text: "hello world",
               backgroundColor: Colors.yellowAccent,
+            ),
+            TitleBar(
+              title: '基础widget',
             ),
             FlatButton(
               child: Text('open new route'),
@@ -169,11 +177,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, 'to_textfield');
                 }),
             OutlineButton(
-                child: Text('open to_form'),
-                textTheme: ButtonTextTheme.primary,
-                onPressed: () {
-                  Navigator.pushNamed(context, 'to_form');
-                }),
+              child: Text('open to_form'),
+              textTheme: ButtonTextTheme.primary,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_form');
+              },
+            ),
+            TitleBar(
+              title: '布局类widget',
+            ),
+            RaisedButton(
+              child: Text('open to_row_and_column'),
+              textTheme: ButtonTextTheme.primary,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_rowandcolumn');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_flex'),
+              textTheme: ButtonTextTheme.primary,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_flex');
+              },
+            ),
             _listView(),
           ],
         ),

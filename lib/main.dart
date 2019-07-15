@@ -15,6 +15,9 @@ import "package:hello_word/views/FormPage.dart";
 import "package:hello_word/views/TitleBar.dart";
 import "package:hello_word/views/RowAndColumnPage.dart";
 import "package:hello_word/views/FlexPage.dart";
+import "package:hello_word/views/WrapAndFlowPage.dart";
+import "package:hello_word/views/StackAndPositioned.dart";
+import "package:hello_word/views/PaddingPage.dart";
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -48,6 +51,9 @@ class MyApp extends StatelessWidget {
         "to_form": (context) => FormPage(),
         "to_rowandcolumn": (context) => RowAndColumn(),
         "to_flex": (context) => FlexPage(),
+        "to_wrap_and_flow": (context) => WrapAndFlow(),
+        "to_stack_and_positioned": (context) => StackAndPositioned(),
+        "to_padding": (context) => PaddingPage(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -198,6 +204,32 @@ class _MyHomePageState extends State<MyHomePage> {
               textTheme: ButtonTextTheme.primary,
               onPressed: () {
                 Navigator.pushNamed(context, 'to_flex');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_wrap_and_flow'),
+              textTheme: ButtonTextTheme.primary,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_wrap_and_flow');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_stack_and_positioned'),
+              textTheme: ButtonTextTheme.primary,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_stack_and_positioned');
+              },
+            ),
+            TitleBar(
+              title: '容器类widget',
+            ),
+            FlatButton(
+              child: Text(
+                'open to_padding',
+                style: TextStyle(color: Colors.brown),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_padding');
               },
             ),
             _listView(),

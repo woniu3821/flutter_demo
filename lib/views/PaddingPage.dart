@@ -20,7 +20,7 @@ class PaddingPage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: Text("I am Jack"),
+              child: Text("I am Jack1"),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(20.0, 0, 20.0, 20.0),

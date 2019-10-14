@@ -18,6 +18,11 @@ import "package:hello_word/views/FlexPage.dart";
 import "package:hello_word/views/WrapAndFlowPage.dart";
 import "package:hello_word/views/StackAndPositioned.dart";
 import "package:hello_word/views/PaddingPage.dart";
+import "package:hello_word/views/Align.dart";
+import 'package:hello_word/views/Center.dart';
+import 'package:hello_word/views/ConstrainedBox.dart';
+import 'package:hello_word/views/DecoratedBox.dart';
+import 'package:hello_word/views/Transform.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -54,6 +59,11 @@ class MyApp extends StatelessWidget {
         "to_wrap_and_flow": (context) => WrapAndFlow(),
         "to_stack_and_positioned": (context) => StackAndPositioned(),
         "to_padding": (context) => PaddingPage(),
+        "to_align": (context) => AlignPage(),
+        "to_center": (context) => CenterPage(),
+        'to_constrained': (context) => ContraniedBoxPage(),
+        'to_decoratedbox': (context) => DecoratedBoxPage(),
+        'to_transform': (context) => TransformPage(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -220,6 +230,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, 'to_stack_and_positioned');
               },
             ),
+            FlatButton(
+              child: Text(
+                'open to_align',
+                style: TextStyle(color: Colors.deepOrange),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_align');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_center',
+                  style: TextStyle(color: Colors.deepOrangeAccent)),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_center');
+              },
+            ),
             TitleBar(
               title: '容器类widget',
             ),
@@ -230,6 +256,33 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               onPressed: () {
                 Navigator.pushNamed(context, 'to_padding');
+              },
+            ),
+            FlatButton(
+                child: Text(
+                  'open to_constrained',
+                  style: TextStyle(color: Colors.redAccent),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'to_constrained');
+                }),
+            FlatButton(
+              child: Text(
+                'open to_decoratedbox',
+                style: TextStyle(color: Colors.deepOrangeAccent),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_decoratedbox');
+              },
+            ),
+            OutlineButton(
+              child: Text(
+                'open to_transform',
+                style: TextStyle(color: Colors.pinkAccent),
+              ),
+              textTheme: ButtonTextTheme.primary,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_transform');
               },
             ),
             _listView(),

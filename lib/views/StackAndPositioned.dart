@@ -13,7 +13,7 @@ class StackAndPositioned extends StatelessWidget {
         constraints: BoxConstraints.expand(),
         child: Stack(
           alignment: Alignment.center,
-          fit: StackFit.expand,
+          fit: StackFit.expand, //使未定位元素充满整个屏幕，stack元素是堆叠的，第一个元素会被遮盖
           children: <Widget>[
             Positioned(
               left: 18.0,

@@ -23,6 +23,8 @@ import 'package:hello_word/views/Center.dart';
 import 'package:hello_word/views/ConstrainedBox.dart';
 import 'package:hello_word/views/DecoratedBox.dart';
 import 'package:hello_word/views/Transform.dart';
+import 'package:hello_word/views/Containier.dart';
+import 'package:hello_word/views/ScaffoldRoute.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -64,6 +66,8 @@ class MyApp extends StatelessWidget {
         'to_constrained': (context) => ContraniedBoxPage(),
         'to_decoratedbox': (context) => DecoratedBoxPage(),
         'to_transform': (context) => TransformPage(),
+        'to_container': (context) => ContainerPage(),
+        'to_scaffoldroute': (context) => ScaffoldRoute(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -283,6 +287,25 @@ class _MyHomePageState extends State<MyHomePage> {
               textTheme: ButtonTextTheme.primary,
               onPressed: () {
                 Navigator.pushNamed(context, 'to_transform');
+              },
+            ),
+            OutlineButton(
+              child: Text(
+                'open to_container',
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+              textTheme: ButtonTextTheme.primary,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_container');
+              },
+            ),
+            FlatButton(
+              child: Text('open to_scaffoldroute',
+                  style: TextStyle(color: Colors.greenAccent)),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_scaffoldroute');
               },
             ),
             _listView(),

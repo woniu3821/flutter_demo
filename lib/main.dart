@@ -25,6 +25,12 @@ import 'package:hello_word/views/DecoratedBox.dart';
 import 'package:hello_word/views/Transform.dart';
 import 'package:hello_word/views/Containier.dart';
 import 'package:hello_word/views/ScaffoldRoute.dart';
+import 'package:hello_word/views/ClipPage.dart';
+import 'package:hello_word/views/SingleChildScrollView.dart';
+import 'package:hello_word/views/ListView.builder.dart';
+import 'package:hello_word/views/ListViewSeparated.dart';
+import 'package:hello_word/views/InfiniteListView.dart';
+import 'package:hello_word/views/GridView.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -68,6 +74,12 @@ class MyApp extends StatelessWidget {
         'to_transform': (context) => TransformPage(),
         'to_container': (context) => ContainerPage(),
         'to_scaffoldroute': (context) => ScaffoldRoute(),
+        'to_clippage': (context) => ClipPage(),
+        'to_singlescrollview': (context) => SingleScrollViewPage(),
+        'to_listviewbuilder': (context) => ListViewPage(),
+        'to_listviewseparated': (context) => ListViewSeparatedPage(),
+        'to_infinitelistview': (context) => InfiniteListViewPage(),
+        'to_gridviewpage': (context) => GridViewPage(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -308,7 +320,48 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, 'to_scaffoldroute');
               },
             ),
-            _listView(),
+            RaisedButton(
+              child: Text('open to_clippage',
+                  style: TextStyle(color: Colors.amber)),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_clippage');
+              },
+            ),
+            TitleBar(
+              title: '可滚动组件',
+            ),
+            RaisedButton(
+              child: Text('open to_singlescrollview'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_singlescrollview');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_listviewbuilder'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_listviewbuilder');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_listviewseparated'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_listviewseparated');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_infinitelistview'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_infinitelistview');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_gridviewpage',
+                  style: TextStyle(color: Colors.lightBlueAccent)),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_gridviewpage');
+              },
+            ),
+            // _listView(),
           ],
         ),
       ),

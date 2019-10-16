@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:hello_word/views/Drawer.dart';
+
 class ScaffoldRoute extends StatefulWidget {
   @override
   _ScaffoldRouteState createState() => _ScaffoldRouteState();
@@ -46,6 +48,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
           );
         }),
       ),
+      drawer: new DrawerPage(),
       body: TabBarView(
           controller: _tabController,
           children: tabs.map((e) {
@@ -54,7 +57,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
                 child: Text(e, textScaleFactor: 5));
           }).toList()),
       //   drawer: new MyDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
+/*       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
           BottomNavigationBarItem(
@@ -65,11 +68,30 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
         currentIndex: _selectedIndex,
         fixedColor: Colors.blue,
         onTap: _onItemTapped,
+      ), */
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {},
+            ),
+            SizedBox(),
+            IconButton(
+              icon: Icon(Icons.business),
+              onPressed: () {},
+            )
+          ],
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _onAdd,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 

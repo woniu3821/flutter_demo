@@ -31,6 +31,11 @@ import 'package:hello_word/views/ListView.builder.dart';
 import 'package:hello_word/views/ListViewSeparated.dart';
 import 'package:hello_word/views/InfiniteListView.dart';
 import 'package:hello_word/views/GridView.dart';
+import 'package:hello_word/views/GridView.builder.dart';
+import 'package:hello_word/views/CustomScrollView.dart';
+import 'package:hello_word/views/ScrollController.dart';
+import 'package:hello_word/views/ScrollNotificationTestRoute.dart';
+import 'package:hello_word/views/WillPopScopeTestRoute.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -80,6 +85,11 @@ class MyApp extends StatelessWidget {
         'to_listviewseparated': (context) => ListViewSeparatedPage(),
         'to_infinitelistview': (context) => InfiniteListViewPage(),
         'to_gridviewpage': (context) => GridViewPage(),
+        'to_gridviewbuilder': (context) => GridViewBuildPage(),
+        'to_customscrollview': (context) => CustomScrollViewPage(),
+        'to_scrollcontroller': (context) => ScrollControllerPage(),
+        'to_scrollnotification': (context) => ScrollNotificationPage(),
+        'to_willpopscope': (context) => WillPopScopePage(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -361,6 +371,38 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, 'to_gridviewpage');
               },
             ),
+            FlatButton(
+              child: Text('open to_gridviewbuilder'),
+              textColor: Colors.black26,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_gridviewbuilder');
+              },
+            ),
+            RaisedButton(
+                child: Text('open to_customscrollview'),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'to_customscrollview');
+                }),
+            FlatButton(
+                child: Text('open to_scrollcontroller'),
+                textTheme: ButtonTextTheme.primary,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'to_scrollcontroller');
+                }),
+            OutlineButton(
+              child: Text('open to_scrollnotification'),
+              color: Colors.amberAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_scrollnotification');
+              },
+            ),
+            TitleBar(title: '功能型组件'),
+
+            RaisedButton(
+                child: Text('open to_willpopscope'),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'to_willpopscope');
+                })
             // _listView(),
           ],
         ),

@@ -19,7 +19,7 @@ class TitleBar extends StatelessWidget {
       color: Colors.black12,
       child: GradientText(title,
           gradient: LinearGradient(
-              colors: [Colors.deepPurple, Colors.deepOrange, Colors.pink]),
+              colors: [Colors.greenAccent, Colors.blueGrey, Colors.blueAccent]),
           style:
               TextStyle(fontSize: this.fontSize, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center),

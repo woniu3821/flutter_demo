@@ -36,6 +36,10 @@ import 'package:hello_word/views/CustomScrollView.dart';
 import 'package:hello_word/views/ScrollController.dart';
 import 'package:hello_word/views/ScrollNotificationTestRoute.dart';
 import 'package:hello_word/views/WillPopScopeTestRoute.dart';
+import 'package:hello_word/views/ShareTestDataRoute.dart';
+import 'package:hello_word/views/ProviderRoute.dart';
+import 'package:hello_word/views/NavBar.dart';
+import 'package:hello_word/views/ThemeTestRoute.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -90,6 +94,9 @@ class MyApp extends StatelessWidget {
         'to_scrollcontroller': (context) => ScrollControllerPage(),
         'to_scrollnotification': (context) => ScrollNotificationPage(),
         'to_willpopscope': (context) => WillPopScopePage(),
+        'to_sharedatatest': (context) => ShareTestDataInherited(),
+        'to_providerroute': (context) => ProviderRoute(),
+        'to_themeroute': (context) => ThemeTestRoute(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -402,7 +409,33 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('open to_willpopscope'),
                 onPressed: () {
                   Navigator.pushNamed(context, 'to_willpopscope');
-                })
+                }),
+            FlatButton(
+              child: Text('open to_sharedatatest'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_sharedatatest');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_providerroute'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_providerroute');
+              },
+            ),
+            NavBar(
+              color: Colors.green,
+              title: '测试标题',
+            ),
+            NavBar(
+              color: Colors.white,
+              title: '测试颜色',
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_themeroute');
+              },
+              child: Text('open to_themeroute'),
+            ),
             // _listView(),
           ],
         ),

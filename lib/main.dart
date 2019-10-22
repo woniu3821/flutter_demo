@@ -40,6 +40,9 @@ import 'package:hello_word/views/ShareTestDataRoute.dart';
 import 'package:hello_word/views/ProviderRoute.dart';
 import 'package:hello_word/views/NavBar.dart';
 import 'package:hello_word/views/ThemeTestRoute.dart';
+import 'package:hello_word/views/FutureBuilder.dart';
+import 'package:hello_word/views/StreamBuilder.dart';
+import 'package:hello_word/views/DialogRoute.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -97,6 +100,9 @@ class MyApp extends StatelessWidget {
         'to_sharedatatest': (context) => ShareTestDataInherited(),
         'to_providerroute': (context) => ProviderRoute(),
         'to_themeroute': (context) => ThemeTestRoute(),
+        'to_futureroute': (context) => FutureBuilderRoute(),
+        'to_steamroute': (context) => StreamBuilderRoute(),
+        'to_dialogroute': (context) => DialogRoute(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -436,6 +442,24 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text('open to_themeroute'),
             ),
+            RaisedButton(
+              child: Text('open to_futureroute'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_futureroute');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_steamroute'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_steamroute');
+              },
+            ),
+            OutlineButton(
+              child: Text('open to_dialogroute'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_dialogroute');
+              },
+            )
             // _listView(),
           ],
         ),

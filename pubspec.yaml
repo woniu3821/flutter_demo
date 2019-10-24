@@ -17,6 +17,9 @@ environment:
   sdk: '>=2.1.0 <3.0.0'
 
 dependencies:
+  flutter_localizations:
+    sdk: flutter
+
   flutter:
     sdk: flutter
 
@@ -28,6 +31,9 @@ dependencies:
   english_words: ^3.1.5
   #渐变字体
   gradient_text: ^1.0.2
+
+  #时间格式化
+  date_format: ^1.0.6
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:date_format/date_format.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 import "package:hello_word/views/NewRoute.dart";
 import 'package:hello_word/views/EchoRoute.dart';
 import 'package:hello_word/views/RandomWordsWidget.dart';
@@ -60,6 +63,16 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
+      localizationsDelegates: [
+        //此处
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        //此处
+        const Locale.fromSubtags(languageCode: 'zh'),
+        const Locale.fromSubtags(languageCode: 'en'),
+      ],
       routes: {
         //路由表
         "new_page": (context) => NewRoute(),

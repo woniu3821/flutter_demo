@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:date_format/date_format.dart';
+// import 'package:date_format/date_format.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import "package:hello_word/views/NewRoute.dart";
@@ -46,6 +46,10 @@ import 'package:hello_word/views/ThemeTestRoute.dart';
 import 'package:hello_word/views/FutureBuilder.dart';
 import 'package:hello_word/views/StreamBuilder.dart';
 import 'package:hello_word/views/DialogRoute.dart';
+import 'package:hello_word/views/GestureDetectorTestRoute.dart';
+import 'package:hello_word/views/_Drag.dart';
+import 'package:hello_word/views/_ScaleTestRoute.dart';
+import 'package:hello_word/views/_GestureRecognizerTestRoute.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -116,6 +120,10 @@ class MyApp extends StatelessWidget {
         'to_futureroute': (context) => FutureBuilderRoute(),
         'to_steamroute': (context) => StreamBuilderRoute(),
         'to_dialogroute': (context) => DialogRoute(),
+        'to_gestureroute': (context) => GestureDetectorTestRoute(),
+        'to_dragroute': (context) => DragRoute(),
+        'to_scaleroute': (context) => ScaleTestRoute(),
+        'to_gesturerecognizer': (context) => GestureRecognizerTestRoute(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -472,7 +480,32 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.pushNamed(context, 'to_dialogroute');
               },
-            )
+            ),
+            TitleBar(title: '事件处理与通知'),
+            RaisedButton(
+              child: Text('open to_gestureroute'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_gestureroute');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_dragroute'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_dragroute');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_scaleroute'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_scaleroute');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_gesturerecognizer'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_gesturerecognizer');
+              },
+            ),
             // _listView(),
           ],
         ),

@@ -2,6 +2,10 @@ import "package:flutter/material.dart";
 // import 'package:date_format/date_format.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import './tools/EventBus.dart';
+
+import './views/FadeRoute.dart';
+
 import "package:hello_word/views/NewRoute.dart";
 import 'package:hello_word/views/EchoRoute.dart';
 import 'package:hello_word/views/RandomWordsWidget.dart';
@@ -50,6 +54,8 @@ import 'package:hello_word/views/GestureDetectorTestRoute.dart';
 import 'package:hello_word/views/_Drag.dart';
 import 'package:hello_word/views/_ScaleTestRoute.dart';
 import 'package:hello_word/views/_GestureRecognizerTestRoute.dart';
+import 'package:hello_word/views/NotificationRoute.dart';
+import 'package:hello_word/views/ScaleAnimationRoute.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -62,6 +68,10 @@ void main() => runApp(new MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    bus.on("login", (arg) {
+      print('---$arg---');
+    });
+
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
@@ -124,6 +134,8 @@ class MyApp extends StatelessWidget {
         'to_dragroute': (context) => DragRoute(),
         'to_scaleroute': (context) => ScaleTestRoute(),
         'to_gesturerecognizer': (context) => GestureRecognizerTestRoute(),
+        'to_notification': (context) => NotificationRoute(),
+        'to_scaleanimation': (context) => ScaleAnimationRoute(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -506,6 +518,38 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, 'to_gesturerecognizer');
               },
             ),
+            RaisedButton(
+              child: Text('open to_notification'),
+              onPressed: () {
+                // Navigator.pushNamed(context, 'to_notification');
+                Navigator.push(context, FadeRoute(builder: (context) {
+                  return NotificationRoute();
+                }));
+              },
+            ),
+            TitleBar(
+              title: '动画',
+            ),
+            RaisedButton(
+              child: Text('open to_scaleanimation'),
+              onPressed: () {
+                // Navigator.pushNamed(context, 'to_scaleanimation');
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    transitionDuration: Duration(milliseconds: 500),
+                    pageBuilder: (BuildContext context, Animation animation,
+                        Animation secondaryAnimation) {
+                      return new FadeTransition(
+                        opacity: animation,
+                        child: ScaleAnimationRoute(),
+                      );
+                    },
+                  ),
+                );
+              },
+            )
+
             // _listView(),
           ],
         ),

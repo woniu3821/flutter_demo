@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'ScaffoldBody.dart';
 
 import 'package:flutter/material.dart';
+import '../tools/EventBus.dart';
 
 class GestureRecognizerTestRoute extends StatefulWidget {
   GestureRecognizerTestRoute({Key key}) : super(key: key);
@@ -23,6 +24,12 @@ class _GestureRecognizerTestRouteState
 
     _tapGestureRecognizer.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    bus.emit('login', '我登陆了');
   }
 
   @override

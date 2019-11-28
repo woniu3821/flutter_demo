@@ -19,7 +19,7 @@ class DrawerPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: ClipOval(
-                      child: Image.asset('graphics/avatar.png', width: 80.0),
+                      child: Image.asset('images/avatar.png', width: 80.0),
                     ),
                   ),
                   Text('Wendux', style: TextStyle(fontWeight: FontWeight.bold))

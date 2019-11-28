@@ -13,7 +13,7 @@ class CustomScrollViewPage extends StatelessWidget {
             expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
               title: const Text('Demo'),
-              background: Image.asset('graphics/ships.jpg'),
+              background: Image.asset('images/ships.jpg'),
             ),
           ),
           SliverPadding(

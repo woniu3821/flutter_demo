@@ -56,6 +56,14 @@ import 'package:hello_word/views/_ScaleTestRoute.dart';
 import 'package:hello_word/views/_GestureRecognizerTestRoute.dart';
 import 'package:hello_word/views/NotificationRoute.dart';
 import 'package:hello_word/views/ScaleAnimationRoute.dart';
+import 'package:hello_word/views/HeroAnimationRoute.dart';
+import 'package:hello_word/views/StaggerAnimation.dart';
+import 'package:hello_word/views/AnimatedSwitcherCounterRoute.dart';
+import 'package:hello_word/views/GradientButtonRoute.dart';
+import 'package:hello_word/views/FileOperationRoute.dart';
+import 'package:hello_word/views/HttpTestRoute.dart';
+import 'package:hello_word/views/DioRoute.dart';
+import 'package:hello_word/views/WebSocketRoute.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -136,6 +144,11 @@ class MyApp extends StatelessWidget {
         'to_gesturerecognizer': (context) => GestureRecognizerTestRoute(),
         'to_notification': (context) => NotificationRoute(),
         'to_scaleanimation': (context) => ScaleAnimationRoute(),
+        'to_hero': (context) => HeroAnimationRoute(),
+        'to_stagger': (context) => StaggerRoute(),
+        'to_switcheranimated': (context) => AnimatedSwitcherCounterRoute(),
+        'to_gradientbutton': (context) => GradientButtonRoute(),
+        'to_websocketroute': (context) => WebSocketRoute(),
       },
       home: new MyHomePage(title: 'Flutter Demo HomePage'),
     );
@@ -182,7 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: '基础widget',
             ),
             FlatButton(
-              child: Text('open new route'),
+              child: Text('open route_width_params'),
               textColor: Colors.blue,
               onPressed: () {
                 // Navigator.push(
@@ -548,8 +561,86 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 );
               },
-            )
-
+            ),
+            RaisedButton(
+              child: Text('open to_hero'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_hero');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_stagger'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_stagger');
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_switcheranimated'),
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_switcheranimated');
+              },
+            ),
+            TitleBar(
+              title: '自定义组件',
+            ),
+            RaisedButton(
+              child: Text('open to_gradientbutton'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (context) {
+                      return GradientButtonRoute();
+                    },
+                  ),
+                );
+              },
+            ),
+            NavBar(
+              title: '未完待续...',
+              color: Colors.grey,
+            ),
+            TitleBar(
+              title: '文件操作与网路请求',
+            ),
+            RaisedButton(
+              child: Text('open to_fileoperation'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (context) {
+                      return FileOperationRoute();
+                    },
+                  ),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_httpclient'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return HttpTestRoute();
+                  }),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('open to_dioroute'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return DioRoute();
+                }));
+              },
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'to_websocketroute');
+              },
+              child: Text('open to_websocketroute'),
+            ),
             // _listView(),
           ],
         ),

@@ -6,7 +6,7 @@ class AssetBundle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Future<String> loadAsset() async {
-    //   return await rootBundle.AssetImage('graphics/head.png');
+    //   return await rootBundle.AssetImage('images/head.png');
     // }
 
     // String data;
@@ -20,7 +20,7 @@ class AssetBundle extends StatelessWidget {
     return new DecoratedBox(
       decoration: new BoxDecoration(
         image: new DecorationImage(
-          image: new AssetImage('graphics/head.png'),
+          image: new AssetImage('images/head.png'),
         ),
       ),
     );

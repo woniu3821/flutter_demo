@@ -75,7 +75,7 @@ class _ScaleAnimationRouteState extends State<ScaleAnimationRoute>
     return Body(
       title: "AnimatedBuilder重构动画",
       child: GrowTransition(
-        child: Image.asset("graphics/avatar.png"),
+        child: Image.asset("images/avatar.png"),
         animation: animation,
       ),
     );

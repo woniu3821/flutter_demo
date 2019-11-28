@@ -19,7 +19,7 @@ class _ScaleTestRouteState extends State<ScaleTestRoute> {
       child: Center(
         child: GestureDetector(
           child: Image.asset(
-            'graphics/ships.jpg',
+            'images/ships.jpg',
             width: _width,
           ),
           onScaleUpdate: (ScaleUpdateDetails e) {

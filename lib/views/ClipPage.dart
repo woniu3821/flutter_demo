@@ -6,7 +6,7 @@ class ClipPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget avatar = Image.asset(
-      'graphics/avatar.png',
+      'images/avatar.png',
       width: 60.0,
     );
 

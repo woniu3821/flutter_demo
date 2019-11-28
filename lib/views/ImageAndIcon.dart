@@ -26,11 +26,11 @@ class ImageAndIcon extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Image(
-            image: AssetImage("graphics/avatar.png"),
+            image: AssetImage("images/avatar.png"),
             width: 50.0,
           ),
           Image.asset(
-            "graphics/avatar.png",
+            "images/avatar.png",
             width: 50.0,
           ),
           Image(
@@ -40,13 +40,13 @@ class ImageAndIcon extends StatelessWidget {
             fit: BoxFit.fill,
           ),
           Image(
-            image: AssetImage("graphics/avatar.png"),
+            image: AssetImage("images/avatar.png"),
             width: 100.0,
             color: Colors.blue,
             colorBlendMode: BlendMode.difference,
           ),
 /*           Image(
-            image: AssetImage("graphics/avatar.png"),
+            image: AssetImage("images/avatar.png"),
             width: 100.0,
             height: 200.0,
             repeat: ImageRepeat.repeatY,

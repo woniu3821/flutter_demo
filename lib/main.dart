@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 // import 'package:date_format/date_format.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import './tools/EventBus.dart';
 
 import './views/FadeRoute.dart';
@@ -64,6 +63,8 @@ import 'package:hello_word/views/FileOperationRoute.dart';
 import 'package:hello_word/views/HttpTestRoute.dart';
 import 'package:hello_word/views/DioRoute.dart';
 import 'package:hello_word/views/WebSocketRoute.dart';
+import 'models/index.dart';
+import './i10n/localization_intl.dart';
 
 //widget自身管理状态
 // import 'package:hello_word/views/BoxChange.dart';
@@ -71,7 +72,19 @@ import 'package:hello_word/views/WebSocketRoute.dart';
 //父widget管理子widget的state
 import 'package:hello_word/views/ParentWidget.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  var family = Family.fromJson({
+    "name": "Jack",
+    'age': 27,
+    "+1": 20,
+    "father": {"place": "南极"}
+  });
+  print(family.loved); // 20
+  print(family.age);
+  print(family.father.place);
+
+  return runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -81,14 +94,18 @@ class MyApp extends StatelessWidget {
     });
 
     return new MaterialApp(
-      title: 'Flutter Demo',
+      onGenerateTitle: (context) {
+        // 此时context在Localizations的子树中
+        return DemoLocalizations.of(context).title;
+      },
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
       localizationsDelegates: [
-        //此处
+        // 本地化的代理类
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        DemoLocalizationsDelegate() // 设置Delegate
       ],
       supportedLocales: [
         //此处

@@ -1,0 +1,19 @@
+{
+  "@@last_modified": "2019-11-30T16:46:17.324074",
+  "title": "Fluter 应用",
+  "@title": {
+    "description": "Title for the Demo application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "remainingEmailsMessage": "{howMany,plural, =0{没有电子邮件了}=1{还有 {howMany} 封电子邮件}other{There are {howMany} emails left}}",
+  "@remainingEmailsMessage": {
+    "description": "How many emails remain after archiving.",
+    "type": "text",
+    "placeholders": {
+      "howMany": {
+        "example": 42
+      }
+    }
+  }
+}

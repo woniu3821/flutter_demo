@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../tools/downloadWithChunks.dart';
-import '../tools/user.dart';
 
 class DioRoute extends StatefulWidget {
   DioRoute({Key key}) : super(key: key);
@@ -39,7 +38,6 @@ class _DioRouteState extends State<DioRoute> {
         child: FutureBuilder(
           future: _dio.get("https://api.github.com/orgs/flutterchina/repos"),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
-            print(user.email);
             //执行分块下载
             // main();
             if (snapshot.connectionState == ConnectionState.done) {

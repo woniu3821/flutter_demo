@@ -1,0 +1,9 @@
+{
+    "name": "wendux",
+    "father": "$user",
+    "friends": "$[]user",
+    "keywords": "$[]String",
+    "age": 20,
+    "@JsonKey(ignore: true) dynamic": "md",
+    "@JsonKey(name: '+1') int": "loved"
+}
